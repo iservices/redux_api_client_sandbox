@@ -13,7 +13,7 @@
     "test": "gulp test",
     "build": "gulp build",
     "build-fast": "gulp build-fast",
-    "run": "guilp build && npm start",
+    "run": "gulp build && npm start",
     "run-fast": "gulp build-fast && npm start",
     "watch": "gulp watch"
   },
