@@ -1,5 +1,6 @@
  /* eslint strict:0, no-console:0 */
 'use strict';
+const path = require('path');
 
 const gulp = require('gulp');
 const fs = require('fs');
@@ -17,6 +18,16 @@ asset.registerTasks({
   version: __package.version,
   name: 'public'
 });
+
+// asset.registerTasks({
+//   inputDir: 'src/apps/apiToyProject',
+//   glob: '**/*.html',
+//   outputDir: path.join('dist/', __package.version, 'apps/apiToyProject/templates'),
+//   // outputDir: 'dist/' + __package.version + ,
+//   // version: __package.version,
+//   // name: 'templates',
+//   tasksPrefix: 'api-project-template'
+// });
 
 bundle.registerTasks({
   inputDir: 'lib/apps/',
@@ -42,13 +53,13 @@ transform.registerTasks({
 /*
  * Build the application.
  */
-gulp.task('build', ['asset', 'bundle', 'style', 'transform'], function () {
+gulp.task('build', ['asset','bundle', 'style', 'transform', /*'api-project-template-asset'*/], function () {
 });
 
 /*
  * Fast build the application (only bundle apps).
  */
-gulp.task('build-fast', ['asset', 'bundleApps', 'transform'], function () {
+gulp.task('build-fast', ['asset', /*'api-project-template-asset',*/ 'bundleApps', 'transform'], function () {
 });
 
 if (process.env.NODE_ENV !== 'production') {
